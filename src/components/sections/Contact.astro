@@ -1,0 +1,389 @@
+---
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+---
+
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <div class="section-header scroll-reveal">
+      <h2 class="section-title">
+        Hablemos de Tu <span class="gradient-text">Proyecto</span>
+      </h2>
+      <p class="section-description">
+        ¿Tienes una idea? Trabajemos juntos para hacerla realidad
+      </p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Info -->
+      <div class="contact-info scroll-reveal">
+        <h3 class="contact-info-title">Información de Contacto</h3>
+        <p class="contact-info-description">
+          Estoy disponible para proyectos freelance y oportunidades de colaboración.
+          ¡No dudes en contactarme!
+        </p>
+
+        <div class="contact-methods">
+          <a href="mailto:tu@email.com" class="contact-method">
+            <div class="contact-method-icon">
+              <Mail size={24} />
+            </div>
+            <div class="contact-method-info">
+              <h4>Email</h4>
+              <p>markodevcode@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="tel:+521234567890" class="contact-method">
+            <div class="contact-method-icon">
+              <Phone size={24} />
+            </div>
+            <div class="contact-method-info">
+              <h4>Teléfono</h4>
+              <p>+54 9 299-612-0756</p>
+            </div>
+          </a>
+
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <MapPin size={24} />
+            </div>
+            <div class="contact-method-info">
+              <h4>Ubicación</h4>
+              <p>Neuquen, Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <h4>Sígueme en</h4>
+          <div class="social-links">
+            <a href="https://github.com/Markopamichh" target="_blank" rel="noopener noreferrer" class="social-link">
+              <Github size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/marko-pamich-a31b492a8" target="_blank" rel="noopener noreferrer" class="social-link">
+              <Linkedin size={20} />
+            </a>
+            <a href="https://x.com/Markodevcode" target="_blank" rel="noopener noreferrer" class="social-link">
+              <Twitter size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-container scroll-reveal animation-delay-200">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Nombre completo</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              required
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Asunto</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-input"
+              required
+              placeholder="¿En qué puedo ayudarte?"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              rows="6"
+              required
+              placeholder="Cuéntame sobre tu proyecto..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            <span>Enviar Mensaje</span>
+            <Send size={20} />
+          </button>
+
+          <div id="form-status" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const formStatus = document.getElementById('form-status');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!formStatus) return;
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      // Show loading
+      formStatus.textContent = 'Enviando mensaje...';
+      formStatus.className = 'form-status form-status-loading';
+
+      // Simulate API call
+      setTimeout(() => {
+        formStatus.textContent = '¡Mensaje enviado exitosamente! Te responderé pronto.';
+        formStatus.className = 'form-status form-status-success';
+        form.reset();
+
+        setTimeout(() => {
+          formStatus.textContent = '';
+          formStatus.className = 'form-status';
+        }, 5000);
+      }, 1500);
+
+      // In production, replace with actual API call:
+      // try {
+      //   const response = await fetch('/api/contact', {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify(data)
+      //   });
+      //   if (response.ok) {
+      //     formStatus.textContent = '¡Mensaje enviado exitosamente!';
+      //     formStatus.className = 'form-status form-status-success';
+      //     form.reset();
+      //   }
+      // } catch (error) {
+      //   formStatus.textContent = 'Error al enviar. Por favor, intenta de nuevo.';
+      //   formStatus.className = 'form-status form-status-error';
+      // }
+    });
+  }
+</script>
+
+<style>
+  .contact-section {
+    background: var(--bg-secondary);
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-info-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .contact-info-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-method {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all var(--transition-base);
+    text-decoration: none;
+  }
+
+  .contact-method:hover {
+    transform: translateX(5px);
+    border-color: var(--primary);
+  }
+
+  .contact-method-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-method-info h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-method-info p {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .contact-social h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+  }
+
+  .social-link:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 0.875rem 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .form-status {
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 500;
+    display: none;
+  }
+
+  .form-status-loading,
+  .form-status-success,
+  .form-status-error {
+    display: block;
+  }
+
+  .form-status-loading {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+  }
+
+  .form-status-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+  }
+
+  .form-status-error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+  }
+
+  @media (max-width: 968px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

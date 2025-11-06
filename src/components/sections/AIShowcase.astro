@@ -1,0 +1,153 @@
+---
+import Chatbot from '../interactive/Chatbot';
+---
+
+<section id="ai-showcase" class="section ai-section">
+  <div class="container">
+    <div class="section-header scroll-reveal">
+      <h2 class="section-title">
+        Experiencia con <span class="gradient-text">IA</span>
+      </h2>
+      <p class="section-description">
+        Prueba mi chatbot en vivo - Demuestra las capacidades de automatización con IA
+      </p>
+    </div>
+
+    <div class="ai-content">
+      <div class="ai-demo scroll-reveal">
+        <Chatbot client:visible />
+      </div>
+
+      <div class="ai-stats scroll-reveal animation-delay-200">
+        <h3 class="ai-stats-title">Impacto Real</h3>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-number">100k+</div>
+            <div class="stat-label">Mensajes Procesados</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">&lt;2s</div>
+            <div class="stat-label">Tiempo de Respuesta</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Precisión IA</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Disponibilidad</div>
+          </div>
+        </div>
+
+        <div class="ai-features">
+          <h4>Características del Chatbot</h4>
+          <ul>
+            <li>Respuestas inteligentes contextuales</li>
+            <li>Aprendizaje continuo</li>
+            <li>Integración multi-plataforma</li>
+            <li>Soporte multiidioma</li>
+            <li>Análisis de sentimientos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ai-section {
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .ai-demo {
+    position: sticky;
+    top: 100px;
+  }
+
+  .ai-stats-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .ai-features {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .ai-features h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .ai-features ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ai-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .ai-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+  }
+
+  @media (max-width: 968px) {
+    .ai-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .ai-demo {
+      position: static;
+    }
+  }
+</style>

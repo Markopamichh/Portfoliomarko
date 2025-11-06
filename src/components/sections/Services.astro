@@ -1,0 +1,260 @@
+---
+import services from '../../data/services.json';
+import { Code2, Bot, Search, ArrowRight } from 'lucide-react';
+---
+
+<section id="services" class="section services-section">
+  <div class="container">
+    <div class="section-header scroll-reveal">
+      <h2 class="section-title">
+        Mis <span class="gradient-text">Servicios</span>
+      </h2>
+      <p class="section-description">
+        Soluciones completas para llevar tu negocio al siguiente nivel
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.services.map((service, index) => (
+        <div class={`service-card scroll-reveal ${service.highlighted ? 'highlighted' : ''}`} style={`animation-delay: ${index * 100}ms`}>
+          <div class="service-card-inner">
+            <!-- Front -->
+            <div class="service-card-front">
+              <div class="service-icon">
+                {service.icon === 'code-2' && <Code2 size={32} />}
+                {service.icon === 'bot' && <Bot size={32} />}
+                {service.icon === 'search' && <Search size={32} />}
+              </div>
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-description">{service.description}</p>
+              {service.highlighted && (
+                <span class="service-badge">Destacado</span>
+              )}
+              <div class="service-hover-indicator">
+                <span>Ver detalles</span>
+                <ArrowRight size={16} />
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="service-card-back">
+              <h4 class="service-features-title">¿Qué incluye?</h4>
+              <ul class="service-features">
+                {service.features.map((feature: string) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+              <div class="service-tech">
+                {service.techStack.slice(0, 3).map((tech: string) => (
+                  <span class="tech-badge">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Stats -->
+    <div class="services-stats scroll-reveal">
+      {services.stats.map((stat) => (
+        <div class="stat-card">
+          <div class="stat-value">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    position: relative;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .service-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .service-card:hover .service-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .service-card-front,
+  .service-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card-front {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-xl);
+  }
+
+  [data-theme="dark"] .service-card-front {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .service-card.highlighted .service-card-front {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border: 2px solid rgba(99, 102, 241, 0.3);
+  }
+
+  .service-card-back {
+    background: var(--gradient-primary);
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .service-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .service-badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: var(--accent);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .service-hover-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .service-features-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .service-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .service-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tech-badge {
+    padding: 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .services-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      height: auto;
+      min-height: 350px;
+    }
+  }
+</style>

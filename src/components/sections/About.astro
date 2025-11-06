@@ -1,0 +1,325 @@
+---
+import skills from '../../data/skills.json';
+---
+
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="section-header scroll-reveal">
+      <h2 class="section-title">
+        Sobre <span class="gradient-text">Mí</span>
+      </h2>
+      <p class="section-description">
+        Desarrollador apasionado por crear soluciones que combinan tecnología moderna con inteligencia artificial
+      </p>
+    </div>
+
+    <div class="about-content">
+      <!-- About Text -->
+      <div class="about-text scroll-reveal">
+        <div class="about-card">
+          <h3 class="about-subtitle">¡Hola! Soy Marko Pamich</h3>
+          <p class="about-paragraph">
+            Me especializo en crear <strong>soluciones digitales innovadoras</strong> que transforman ideas en
+            productos reales. Con experiencia en desarrollo web moderno y automatizaciones con IA, ayudo a
+            empresas a optimizar sus procesos y mejorar la experiencia de sus clientes.
+          </p>
+          <p class="about-paragraph">
+            Mi enfoque combina <strong>código limpio</strong>, <strong>mejores prácticas</strong> y
+            <strong>tecnologías de vanguardia</strong> para entregar productos que no solo funcionan,
+            sino que superan expectativas.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="highlight-icon">⚡</span>
+              <div>
+                <strong>Desarrollo Rápido</strong>
+                <p>Entregas eficientes sin comprometer calidad</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">🎯</span>
+              <div>
+                <strong>Enfoque en Resultados</strong>
+                <p>Soluciones que impulsan tu negocio</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">🔧</span>
+              <div>
+                <strong>Mantenimiento Continuo</strong>
+                <p>Soporte post-lanzamiento garantizado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="skills-container scroll-reveal animation-delay-200">
+        {skills.categories.map((category) => (
+          <div class="skill-category">
+            <h4 class="skill-category-title">
+              {category.name}
+            </h4>
+            <div class="skills-grid">
+              {category.skills.map((skill) => (
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name">{skill.name}</span>
+                    <span class="skill-level">{skill.level}%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div
+                      class="skill-bar-fill"
+                      style={`width: ${skill.level}%`}
+                      data-level={skill.level}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animate skill bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
+        skillBars.forEach((bar, index) => {
+          setTimeout(() => {
+            bar.classList.add('animated');
+          }, index * 100);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  const skillsContainer = document.querySelector('.skills-container');
+  if (skillsContainer) {
+    observer.observe(skillsContainer);
+  }
+</script>
+
+<style>
+  .about-section {
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-card {
+    background: var(--bg-primary);
+    padding: 2.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+  }
+
+  .about-subtitle {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+  }
+
+  .about-paragraph {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-paragraph strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .about-highlights {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .highlight-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .highlight-item strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .highlight-item p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .skill-category {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+  }
+
+  .skill-category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+  }
+
+  .skill-level {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .skill-bar {
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: translateX(-100%);
+  }
+
+  .skill-bar-fill.animated {
+    animation: fillBar 1.5s ease-out forwards;
+  }
+
+  .skill-bar-fill.animated::after {
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes fillBar {
+    from {
+      width: 0;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-card {
+      padding: 1.5rem;
+    }
+
+    .skill-category {
+      padding: 1.5rem;
+    }
+  }
+</style>

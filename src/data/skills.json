@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "name": "Frontend",
+      "icon": "layout",
+      "skills": [
+        { "name": "React", "level": 90, "icon": "react" },
+        { "name": "TypeScript", "level": 85, "icon": "code" },
+        { "name": "Astro", "level": 88, "icon": "rocket" },
+        { "name": "Next.js", "level": 87, "icon": "zap" },
+        { "name": "Tailwind CSS", "level": 95, "icon": "palette" },
+        { "name": "Framer Motion", "level": 82, "icon": "move" }
+      ]
+    },
+    {
+      "name": "Backend",
+      "icon": "server",
+      "skills": [
+        { "name": "Node.js", "level": 88, "icon": "hexagon" },
+        { "name": "Python", "level": 85, "icon": "file-code" },
+        { "name": "Express", "level": 86, "icon": "box" },
+        { "name": "FastAPI", "level": 80, "icon": "zap" },
+        { "name": "PostgreSQL", "level": 83, "icon": "database" },
+        { "name": "MongoDB", "level": 82, "icon": "database" }
+      ]
+    },
+    {
+      "name": "IA & Automatización",
+      "icon": "brain",
+      "skills": [
+        { "name": "OpenAI API", "level": 90, "icon": "sparkles" },
+        { "name": "LangChain", "level": 85, "icon": "link" },
+        { "name": "WhatsApp Bots", "level": 92, "icon": "message-circle" },
+        { "name": "Chatbots", "level": 93, "icon": "bot" },
+        { "name": "API Integration", "level": 88, "icon": "plug" },
+        { "name": "Automation", "level": 90, "icon": "cpu" }
+      ]
+    },
+    {
+      "name": "Tools & DevOps",
+      "icon": "wrench",
+      "skills": [
+        { "name": "Git", "level": 90, "icon": "git-branch" },
+        { "name": "Docker", "level": 80, "icon": "package" },
+        { "name": "Vercel", "level": 88, "icon": "triangle" },
+        { "name": "Netlify", "level": 85, "icon": "globe" },
+        { "name": "AWS", "level": 75, "icon": "cloud" },
+        { "name": "CI/CD", "level": 82, "icon": "repeat" }
+      ]
+    }
+  ]
+}

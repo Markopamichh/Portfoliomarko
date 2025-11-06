@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del index.html)",
+      "Bash(npm create astro@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npx astro add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

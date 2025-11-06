@@ -1,0 +1,195 @@
+---
+import Navigation from './Navigation.astro';
+import ThemeToggle from '../interactive/ThemeToggle';
+---
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container">
+    <div class="header-content">
+      <!-- Logo -->
+      <a href="/" class="logo group">
+        <span class="logo-text gradient-text">Marko Pamich</span>
+        <span class="logo-dot"></span>
+      </a>
+
+      <!-- Navigation -->
+      <Navigation />
+
+      <!-- Right Section -->
+      <div class="header-actions">
+        <ThemeToggle client:load />
+
+        <a href="#contact" class="btn-header">
+          Contacto
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobile-menu-toggle"
+          class="mobile-menu-btn"
+          aria-label="Toggle menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= 0) {
+      header?.classList.remove('scrolled');
+      return;
+    }
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      // Scroll down
+      header?.classList.add('scrolled', 'hidden');
+    } else {
+      // Scroll up
+      header?.classList.add('scrolled');
+      header?.classList.remove('hidden');
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const nav = document.querySelector('nav');
+
+  mobileMenuToggle?.addEventListener('click', () => {
+    nav?.classList.toggle('active');
+    mobileMenuToggle.classList.toggle('active');
+  });
+</script>
+
+<style>
+  header {
+    padding: 1.5rem 0;
+    background: transparent;
+  }
+
+  header.scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 0;
+  }
+
+  [data-theme="dark"] header.scrolled {
+    background: rgba(15, 23, 42, 0.8);
+  }
+
+  header.hidden {
+    transform: translateY(-100%);
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    transition: transform var(--transition-base);
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .logo-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn-header {
+    padding: 0.625rem 1.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+  }
+
+  .btn-header:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  .hamburger-line {
+    width: 25px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all var(--transition-base);
+    border-radius: 2px;
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: flex;
+    }
+
+    .btn-header {
+      display: none;
+    }
+  }
+</style>

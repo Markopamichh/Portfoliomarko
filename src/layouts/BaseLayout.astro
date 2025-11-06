@@ -1,0 +1,193 @@
+---
+import '../styles/global.css';
+import '../styles/animations.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Portfolio - Full Stack Developer & IA Automation Specialist',
+  description = 'Desarrollo soluciones web modernas y automatizaciones con IA que potencian negocios. Especializado en chatbots, bots de WhatsApp y aplicaciones full stack.',
+  image = '/og-image.jpg',
+  canonical = Astro.url.pathname
+} = Astro.props;
+
+const siteUrl = Astro.site || 'https://tuportfolio.com';
+const canonicalURL = new URL(canonical, siteUrl);
+const ogImage = new URL(image, siteUrl);
+---
+
+<!doctype html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="msapplication-TileColor" content="#6366f1" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tu Nombre",
+      "jobTitle": "Full Stack Developer & IA Automation Specialist",
+      "url": siteUrl.toString(),
+      "sameAs": [
+        "https://github.com/tu-usuario",
+        "https://linkedin.com/in/tu-usuario",
+        "https://twitter.com/tu-usuario"
+      ],
+      "description": description,
+      "knowsAbout": [
+        "Web Development",
+        "Full Stack Development",
+        "Artificial Intelligence",
+        "Chatbot Development",
+        "API Development",
+        "SEO Optimization"
+      ]
+    })} />
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 .bg-gradient-to-r from-primary via-secondary to-accent .z-[9999] transition-all duration-150" style="width: 0%;"></div>
+
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Theme Toggle Script -->
+    <script is:inline>
+      // Initialize theme from localStorage or system preference
+      function initTheme() {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+
+      initTheme();
+
+      // Listen for theme changes
+      window.addEventListener('theme-change', (e) => {
+        const theme = e.detail.theme;
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      });
+    </script>
+
+    <!-- Scroll Progress Script -->
+    <script is:inline>
+      function updateProgressBar() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight - windowHeight;
+        const scrolled = window.scrollY;
+        const progress = (scrolled / documentHeight) * 100;
+        const progressBar = document.getElementById('progress-bar');
+        if (progressBar) {
+          progressBar.style.width = `${progress}%`;
+        }
+      }
+
+      window.addEventListener('scroll', updateProgressBar);
+      window.addEventListener('load', updateProgressBar);
+    </script>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+      function revealOnScroll() {
+        const reveals = document.querySelectorAll('.scroll-reveal');
+
+        reveals.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('is-visible');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+    </script>
+
+    <!-- Smooth Scroll for Navigation -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href !== '#') {
+              e.preventDefault();
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  body {
+    position: relative;
+  }
+
+  main {
+    min-height: 100vh;
+  }
+</style>

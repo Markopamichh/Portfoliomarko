@@ -1,0 +1,149 @@
+---
+const navItems = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Sobre Mí', href: '#about' },
+  { label: 'Servicios', href: '#services' },
+  { label: 'Proyectos', href: '#projects' },
+  { label: 'Testimonios', href: '#testimonials' },
+  { label: 'Contacto', href: '#contact' },
+];
+---
+
+<nav class="nav">
+  <ul class="nav-list">
+    {navItems.map((item) => (
+      <li class="nav-item">
+        <a href={item.href} class="nav-link">
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover {
+    color: var(--primary);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: var(--primary);
+  }
+
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 280px;
+      background: var(--bg-primary);
+      padding: 6rem 2rem 2rem;
+      transform: translateX(100%);
+      transition: transform var(--transition-base);
+      box-shadow: var(--shadow-xl);
+      z-index: 50;
+    }
+
+    .nav.active {
+      transform: translateX(0);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      font-size: 1.125rem;
+    }
+  }
+</style>
+
+<script>
+  // Active link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function setActiveLink() {
+    let current = '';
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      if (window.pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id') || '';
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (href === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', setActiveLink);
+  window.addEventListener('load', setActiveLink);
+
+  // Close mobile menu on link click
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const nav = document.querySelector('.nav');
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      nav?.classList.remove('active');
+      mobileMenuToggle?.classList.remove('active');
+    });
+  });
+</script>

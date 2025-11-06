@@ -1,0 +1,535 @@
+---
+import Terminal from '../interactive/Terminal';
+import ParticleBackground from '../interactive/ParticleBackground';
+---
+
+<section id="hero" class="hero-section">
+  <ParticleBackground client:load />
+
+  <div class="container hero-container">
+    <div class="hero-content">
+      <!-- Text Content -->
+      <div class="hero-text scroll-reveal">
+        <h1 class="hero-title">
+          <span class="gradient-text">Transformo Ideas</span>
+          <br />
+          en Soluciones
+          <br />
+          <span class="typing-container">
+            <span class="typing-text" data-words='["Inteligentes", "Innovadoras", "Automatizadas", "Escalables"]'></span>
+            <span class="typing-cursor">|</span>
+          </span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Full Stack Developer & IA Automation Specialist
+        </p>
+
+        <div class="hero-badges">
+          <span class="badge">
+            <span class="badge-icon">🚀</span>
+            Fast Delivery
+          </span>
+          <span class="badge">
+            <span class="badge-icon">🤖</span>
+            AI Powered
+          </span>
+          <span class="badge">
+            <span class="badge-icon">📈</span>
+            SEO Optimized
+          </span>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary magnetic-btn">
+            <span>Ver Proyectos</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <span class="pulse-dot"></span>
+            Disponible para proyectos
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Proyectos</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Satisfacción</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Soporte</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terminal Visual -->
+      <div class="hero-visual scroll-reveal animation-delay-200">
+        <Terminal client:visible />
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <span class="scroll-text">Scroll para explorar</span>
+    <div class="mouse-icon">
+      <div class="wheel"></div>
+    </div>
+  </div>
+
+  <!-- Background Gradient Mesh -->
+  <div class="gradient-mesh" aria-hidden="true"></div>
+</section>
+
+<script>
+  // Typing animation
+  const typingText = document.querySelector('.typing-text');
+  const typingCursor = document.querySelector('.typing-cursor');
+
+  if (typingText) {
+    const words = JSON.parse(typingText.getAttribute('data-words') || '[]');
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 150;
+
+    function type() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 150;
+      }
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        typingSpeed = 2000; // Pause at end
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+
+      setTimeout(type, typingSpeed);
+    }
+
+    type();
+  }
+
+  // Magnetic button effect
+  const magneticBtns = document.querySelectorAll('.magnetic-btn');
+
+  magneticBtns.forEach((btn) => {
+    btn.addEventListener('mousemove', (e: MouseEvent) => {
+      const target = e.currentTarget as HTMLElement;
+      const rect = target.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      target.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+
+    btn.addEventListener('mouseleave', (e: MouseEvent) => {
+      const target = e.currentTarget as HTMLElement;
+      target.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // Counter animation for stats
+  function animateCounter(element: Element, target: number, duration: number = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+
+    function updateCounter() {
+      start += increment;
+      if (start < target) {
+        element.textContent = Math.floor(start).toString() + (element.textContent?.includes('%') ? '%' : '+');
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target + (element.textContent?.includes('%') ? '%' : '+');
+      }
+    }
+
+    updateCounter();
+  }
+
+  // Trigger counter animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach((stat) => {
+          const text = stat.textContent || '';
+          const number = parseInt(text.replace(/\D/g, ''));
+          if (number) {
+            animateCounter(stat, number);
+          }
+        });
+        observer.disconnect();
+      }
+    });
+  });
+
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) {
+    observer.observe(heroStats);
+  }
+</script>
+
+<style>
+  .hero-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 8rem 0 4rem;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 600px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .typing-container {
+    display: inline-block;
+    color: var(--accent);
+  }
+
+  .typing-text {
+    display: inline-block;
+    min-width: 280px;
+  }
+
+  .typing-cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+    color: var(--accent);
+    margin-left: 4px;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .badge {
+    padding: 0.625rem 1.25rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-base);
+  }
+
+  .badge:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .badge-icon {
+    font-size: 1.125rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-arrow {
+    display: inline-block;
+    transition: transform var(--transition-base);
+  }
+
+  .btn-primary:hover .btn-arrow {
+    transform: translateX(5px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .pulse-dot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--success);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: var(--font-heading);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0.7;
+    animation: float 3s ease-in-out infinite;
+    z-index: 10;
+  }
+
+  .scroll-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .mouse-icon {
+    width: 24px;
+    height: 36px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 3px;
+    height: 6px;
+    background: var(--text-secondary);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: mouseWheel 2s infinite;
+  }
+
+  @keyframes mouseWheel {
+    0% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-50%) translateY(10px);
+      opacity: 0;
+    }
+  }
+
+  .gradient-mesh {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.15;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-text {
+      max-width: 100%;
+    }
+
+    .hero-cta {
+      justify-content: center;
+    }
+
+    .hero-badges {
+      justify-content: center;
+    }
+
+    .hero-stats {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hero-stats {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .stat-divider {
+      display: none;
+    }
+  }
+</style>

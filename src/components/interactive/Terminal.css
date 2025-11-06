@@ -1,0 +1,150 @@
+.terminal {
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  cursor: text;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.terminal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 70px rgba(99, 102, 241, 0.2);
+}
+
+.terminal-header {
+  background: #2d2d2d;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-button-close {
+  background: #ff5f57;
+}
+
+.terminal-button-minimize {
+  background: #ffbd2e;
+}
+
+.terminal-button-maximize {
+  background: #28ca42;
+}
+
+.terminal-title {
+  color: #8b8b8b;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.terminal-body {
+  padding: 20px;
+  height: calc(100% - 47px);
+  overflow-y: auto;
+  color: #d4d4d4;
+  line-height: 1.6;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #5d5d5d;
+}
+
+.terminal-block {
+  margin-bottom: 16px;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.terminal-prompt {
+  color: #4EC9B0;
+  font-weight: bold;
+}
+
+.terminal-prompt-location {
+  color: #569CD6;
+}
+
+.terminal-command {
+  color: #CE9178;
+}
+
+.terminal-output {
+  margin-left: 12px;
+  color: #cccccc;
+}
+
+.terminal-output-line {
+  margin-bottom: 2px;
+}
+
+.terminal-output-line:empty {
+  margin-bottom: 8px;
+}
+
+.terminal-input-form {
+  margin-top: 8px;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #d4d4d4;
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+  width: 100%;
+  caret-color: #4EC9B0;
+}
+
+.terminal-input::placeholder {
+  color: #6a6a6a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terminal {
+    height: 400px;
+    font-size: 12px;
+  }
+
+  .terminal-body {
+    padding: 16px;
+  }
+}

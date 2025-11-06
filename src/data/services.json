@@ -1,0 +1,75 @@
+{
+  "services": [
+    {
+      "id": "fullstack",
+      "title": "Desarrollo Web Full Stack",
+      "icon": "code-2",
+      "description": "Aplicaciones web modernas y escalables con las últimas tecnologías",
+      "features": [
+        "Aplicaciones web SPA y SSR",
+        "APIs RESTful y GraphQL",
+        "Bases de datos optimizadas",
+        "Arquitectura escalable",
+        "Autenticación y seguridad",
+        "Integración de pagos"
+      ],
+      "techStack": ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"],
+      "gradient": "from-blue-500 to-indigo-600"
+    },
+    {
+      "id": "ai-automation",
+      "title": "Automatización con IA",
+      "icon": "bot",
+      "description": "Soluciones inteligentes que trabajan 24/7 para tu negocio",
+      "features": [
+        "Chatbots personalizados con IA",
+        "Bots de WhatsApp para atención al cliente",
+        "Automatización de procesos repetitivos",
+        "Integración con sistemas existentes",
+        "Análisis de datos con ML",
+        "Respuestas inteligentes en tiempo real"
+      ],
+      "techStack": ["OpenAI", "LangChain", "Python", "FastAPI", "WhatsApp API", "Webhooks"],
+      "gradient": "from-purple-500 to-pink-600",
+      "highlighted": true
+    },
+    {
+      "id": "seo-optimization",
+      "title": "Optimización y SEO",
+      "icon": "search",
+      "description": "Velocidad ultrarrápida y posicionamiento superior en buscadores",
+      "features": [
+        "Core Web Vitals optimizados",
+        "SEO técnico avanzado",
+        "Mejora de velocidad de carga",
+        "Schema markup y metadatos",
+        "Optimización de imágenes",
+        "Análisis de rendimiento"
+      ],
+      "techStack": ["Astro", "Next.js", "Lighthouse", "Google Analytics", "Sitemap", "Robots"],
+      "gradient": "from-teal-500 to-emerald-600"
+    }
+  ],
+  "stats": [
+    {
+      "value": "50+",
+      "label": "Proyectos Completados",
+      "icon": "briefcase"
+    },
+    {
+      "value": "98%",
+      "label": "Satisfacción del Cliente",
+      "icon": "star"
+    },
+    {
+      "value": "24/7",
+      "label": "Soporte Continuo",
+      "icon": "clock"
+    },
+    {
+      "value": "100k+",
+      "label": "Mensajes Automatizados",
+      "icon": "message-square"
+    }
+  ]
+}
