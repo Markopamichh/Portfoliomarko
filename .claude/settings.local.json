@@ -4,7 +4,9 @@
       "Bash(del index.html)",
       "Bash(npm create astro@latest:*)",
       "Bash(npm install:*)",
-      "Bash(npx astro add:*)"
+      "Bash(npx astro add:*)",
+      "WebFetch(domain:auca-artesanias.vercel.app)",
+      "WebFetch(domain:mateicos.vercel.app)"
     ],
     "deny": [],
     "ask": []

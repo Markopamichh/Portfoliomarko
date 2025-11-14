@@ -9,19 +9,19 @@
         { "name": "Astro", "level": 88, "icon": "rocket" },
         { "name": "Next.js", "level": 87, "icon": "zap" },
         { "name": "Tailwind CSS", "level": 95, "icon": "palette" },
-        { "name": "Framer Motion", "level": 82, "icon": "move" }
+        { "name": "HTML5", "level": 92, "icon": "html5" },
+        { "name": "CSS3", "level": 90, "icon": "css3" }
       ]
     },
     {
       "name": "Backend",
       "icon": "server",
       "skills": [
-        { "name": "Node.js", "level": 88, "icon": "hexagon" },
-        { "name": "Python", "level": 85, "icon": "file-code" },
-        { "name": "Express", "level": 86, "icon": "box" },
-        { "name": "FastAPI", "level": 80, "icon": "zap" },
+        { "name": "Node.js", "level": 78, "icon": "hexagon" },
+        { "name": "Python", "level": 65, "icon": "file-code" },
         { "name": "PostgreSQL", "level": 83, "icon": "database" },
-        { "name": "MongoDB", "level": 82, "icon": "database" }
+        { "name": "MySQL", "level": 72, "icon": "database" },
+        { "name": "MongoDB", "level": 42, "icon": "database" }
       ]
     },
     {
@@ -41,11 +41,8 @@
       "icon": "wrench",
       "skills": [
         { "name": "Git", "level": 90, "icon": "git-branch" },
-        { "name": "Docker", "level": 80, "icon": "package" },
-        { "name": "Vercel", "level": 88, "icon": "triangle" },
-        { "name": "Netlify", "level": 85, "icon": "globe" },
-        { "name": "AWS", "level": 75, "icon": "cloud" },
-        { "name": "CI/CD", "level": 82, "icon": "repeat" }
+        { "name": "Vercel", "level": 98, "icon": "triangle" },
+        { "name": "Netlify", "level": 85, "icon": "globe" }
       ]
     }
   ]

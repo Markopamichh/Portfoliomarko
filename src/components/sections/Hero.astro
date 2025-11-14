@@ -32,7 +32,7 @@ import ParticleBackground from '../interactive/ParticleBackground';
           </span>
           <span class="badge">
             <span class="badge-icon">🤖</span>
-            AI Powered
+            AI Automation
           </span>
           <span class="badge">
             <span class="badge-icon">📈</span>
@@ -54,7 +54,7 @@ import ParticleBackground from '../interactive/ParticleBackground';
         <!-- Stats -->
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-number">50+</div>
+            <div class="stat-number">10+</div>
             <div class="stat-label">Proyectos</div>
           </div>
           <div class="stat-divider"></div>
@@ -91,57 +91,77 @@ import ParticleBackground from '../interactive/ParticleBackground';
 
 <script>
   // Typing animation
-  const typingText = document.querySelector('.typing-text');
-  const typingCursor = document.querySelector('.typing-cursor');
+  document.addEventListener('DOMContentLoaded', () => {
+    const typingText = document.querySelector('.typing-text');
+    const typingCursor = document.querySelector('.typing-cursor');
 
-  if (typingText) {
-    const words = JSON.parse(typingText.getAttribute('data-words') || '[]');
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 150;
+    if (typingText) {
+      let words: string[] = [];
 
-    function type() {
-      const currentWord = words[wordIndex];
-
-      if (isDeleting) {
-        typingText.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
-      } else {
-        typingText.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 150;
+      try {
+        words = JSON.parse(typingText.getAttribute('data-words') || '[]');
+      } catch (e) {
+        console.error('Error parsing typing words:', e);
+        return;
       }
 
-      if (!isDeleting && charIndex === currentWord.length) {
-        isDeleting = true;
-        typingSpeed = 2000; // Pause at end
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
+      if (!words || words.length === 0) {
+        console.warn('No words provided for typing animation');
+        return;
       }
 
-      setTimeout(type, typingSpeed);
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typingSpeed = 150;
+
+      function type() {
+        const currentWord = words[wordIndex];
+
+        if (!currentWord || !typingText) {
+          console.error('Current word is undefined or typingText is null');
+          return;
+        }
+
+        if (isDeleting) {
+          charIndex--;
+          typingText.textContent = currentWord.substring(0, charIndex);
+          typingSpeed = 50;
+        } else {
+          charIndex++;
+          typingText.textContent = currentWord.substring(0, charIndex);
+          typingSpeed = 150;
+        }
+
+        if (!isDeleting && charIndex === currentWord.length) {
+          isDeleting = true;
+          typingSpeed = 2000; // Pause at end
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+
+        setTimeout(type, typingSpeed);
+      }
+
+      type();
     }
-
-    type();
-  }
+  });
 
   // Magnetic button effect
-  const magneticBtns = document.querySelectorAll('.magnetic-btn');
+  const magneticBtns = document.querySelectorAll<HTMLElement>('.magnetic-btn');
 
   magneticBtns.forEach((btn) => {
-    btn.addEventListener('mousemove', (e: MouseEvent) => {
+    btn.addEventListener('mousemove', (e) => {
       const target = e.currentTarget as HTMLElement;
       const rect = target.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+      const x = (e as MouseEvent).clientX - rect.left - rect.width / 2;
+      const y = (e as MouseEvent).clientY - rect.top - rect.height / 2;
 
       target.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
     });
 
-    btn.addEventListener('mouseleave', (e: MouseEvent) => {
+    btn.addEventListener('mouseleave', (e) => {
       const target = e.currentTarget as HTMLElement;
       target.style.transform = 'translate(0, 0)';
     });

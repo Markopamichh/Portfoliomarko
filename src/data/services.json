@@ -7,13 +7,12 @@
       "description": "Aplicaciones web modernas y escalables con las últimas tecnologías",
       "features": [
         "Aplicaciones web SPA y SSR",
-        "APIs RESTful y GraphQL",
         "Bases de datos optimizadas",
         "Arquitectura escalable",
         "Autenticación y seguridad",
         "Integración de pagos"
       ],
-      "techStack": ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"],
+      "techStack": ["JavaScript", "React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"],
       "gradient": "from-blue-500 to-indigo-600"
     },
     {
@@ -26,10 +25,9 @@
         "Bots de WhatsApp para atención al cliente",
         "Automatización de procesos repetitivos",
         "Integración con sistemas existentes",
-        "Análisis de datos con ML",
         "Respuestas inteligentes en tiempo real"
       ],
-      "techStack": ["OpenAI", "LangChain", "Python", "FastAPI", "WhatsApp API", "Webhooks"],
+      "techStack": ["OpenAI", "LangChain", "N8N", "WhatsApp API", "Webhooks"],
       "gradient": "from-purple-500 to-pink-600",
       "highlighted": true
     },
@@ -52,7 +50,7 @@
   ],
   "stats": [
     {
-      "value": "50+",
+      "value": "15+",
       "label": "Proyectos Completados",
       "icon": "briefcase"
     },
