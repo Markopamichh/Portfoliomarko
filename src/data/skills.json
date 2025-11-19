@@ -1,0 +1,43 @@
+{
+  "categories": [
+    {
+      "name": "Frontend",
+      "skills": [
+        { "name": "React", "level": 90, "icon": "⚛️" },
+        { "name": "Next.js", "level": 87, "icon": "▲" },
+        { "name": "Astro", "level": 88, "icon": "🚀" },
+        { "name": "TypeScript", "level": 85, "icon": "📘" },
+        { "name": "Tailwind CSS", "level": 95, "icon": "🎨" },
+        { "name": "JavaScript", "level": 92, "icon": "💛" },
+        { "name": "HTML/CSS", "level": 95, "icon": "🌐" }
+      ]
+    },
+    {
+      "name": "Backend",
+      "skills": [
+        { "name": "Node.js", "level": 78, "icon": "🟢" },
+        { "name": "MySQL", "level": 80, "icon": "🐬" },
+        { "name": "MongoDB", "level": 75, "icon": "🍃" },
+        { "name": "REST APIs", "level": 85, "icon": "🔌" }
+      ]
+    },
+    {
+      "name": "IA & Automatización",
+      "skills": [
+        { "name": "WhatsApp Bots", "level": 92, "icon": "💬" },
+        { "name": "Chatbots", "level": 93, "icon": "🤖" },
+        { "name": "OpenAI API", "level": 88, "icon": "🧠" },
+        { "name": "Automatizaciones", "level": 90, "icon": "⚡" }
+      ]
+    },
+    {
+      "name": "Tools & DevOps",
+      "skills": [
+        { "name": "Git & GitHub", "level": 90, "icon": "🐙" },
+        { "name": "Vercel", "level": 95, "icon": "▲" },
+        { "name": "VS Code", "level": 98, "icon": "💻" },
+        { "name": "Responsive Design", "level": 92, "icon": "📱" }
+      ]
+    }
+  ]
+}

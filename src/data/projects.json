@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Auca Artesanías",
+    "description": "E-commerce completo para artesanías en madera con integración de WhatsApp Business para automatización de pedidos y consultas. Sistema de catálogo dinámico con carrito de compras y gestión de inventario.",
+    "features": [
+      "Catálogo de productos con filtros avanzados",
+      "Bot de WhatsApp para automatización de ventas",
+      "Carrito de compras con persistencia",
+      "Panel de administración para gestión de productos"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "WhatsApp Business API", "MongoDB"],
+    "image": "./public/images/projects/descarga.png",
+    "liveUrl": "https://auca-artesanias.vercel.app/",
+    "githubUrl": "https://github.com/Markopamichh/AucaArtesanias",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Mateicos",
+    "description": "Tienda online especializada en mates y accesorios premium. Incluye bot conversacional de WhatsApp que procesa pedidos automáticamente y proporciona recomendaciones personalizadas basadas en preferencias del cliente.",
+    "features": [
+      "Diseño responsive optimizado para móviles",
+      "Chatbot IA para recomendaciones de productos",
+      "Integración con WhatsApp para compras directas",
+      "Sistema de búsqueda y categorización inteligente"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "WhatsApp API", "MySQL"],
+    "image": "./public/images/projects/mateicos.png",
+    "liveUrl": "https://mateicos.vercel.app/",
+    "githubUrl": "https://github.com/Markopamichh/mateicos",
+    "featured": true
+  }
+]

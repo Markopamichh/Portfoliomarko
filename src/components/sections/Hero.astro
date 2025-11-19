@@ -1,0 +1,57 @@
+---
+import TypingEffect from '../ui/TypingEffect';
+---
+
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 px-4">
+  <!-- Main Content -->
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Left: Profile Image -->
+      <div class="order-2 md:order-1 flex justify-center animate-fadeIn">
+        <div class="relative group">
+          <!-- Profile Image -->
+          <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-86 lg:h-96 rounded-full overflow-hidden border-4 border-border-light hover:border-matrix transition-all duration-500">
+            <img
+              src="public/images/projects/Fotoperfilmarko.jpg"
+              alt="Marko Pamich"
+              class="w-full h-full object-cover "
+            />
+          </div>
+          <!-- Decorative ring -->
+          <div class="absolute inset-0 rounded-full border-2 border-matrix opacity-0 group-hover:opacity-20 scale-105 transition-all duration-500"></div>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="order-1 md:order-2 text-center md:text-left">
+        <!-- Main Title -->
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-mono font-bold mb-6 animate-slideUp text-matrix">
+          MARKO PAMICH
+        </h1>
+
+        <!-- Description -->
+        <p class="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed animate-fadeIn" style="animation-delay: 0.3s;">
+          Desarrollador Full Stack especializado en automatizaciones inteligentes y desarrollo web moderno.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fadeIn" style="animation-delay: 0.6s;">
+          <a
+            href="#projects"
+            class="btn-matrix px-8 py-3 text-base font-semibold"
+          >
+            Ver Proyectos
+          </a>
+          <a
+            href="#contact"
+            class="px-8 py-3 text-base bg-transparent border-2 border-gray-600 text-gray-300 font-mono font-semibold transition-all duration-300 hover:border-matrix hover:text-matrix"
+            style="border-radius: 16px;"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
