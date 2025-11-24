@@ -10,7 +10,7 @@
       "Panel de administración para gestión de productos"
     ],
     "tech": ["Next.js", "React", "Tailwind CSS", "WhatsApp Business API", "MongoDB"],
-    "image": "./public/images/projects/descarga.png",
+    "image": "/images/projects/descarga.png",
     "liveUrl": "https://auca-artesanias.vercel.app/",
     "githubUrl": "https://github.com/Markopamichh/AucaArtesanias",
     "featured": true
@@ -26,7 +26,7 @@
       "Sistema de búsqueda y categorización inteligente"
     ],
     "tech": ["Next.js", "React", "Tailwind CSS", "WhatsApp API", "MySQL"],
-    "image": "./public/images/projects/mateicos.png",
+    "image": "/images/projects/mateicos.png",
     "liveUrl": "https://mateicos.vercel.app/",
     "githubUrl": "https://github.com/Markopamichh/mateicos",
     "featured": true
