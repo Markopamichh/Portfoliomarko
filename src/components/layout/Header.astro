@@ -1,9 +1,6 @@
 ---
 const navItems = [
   { name: 'Inicio', href: '#home' },
-  { name: 'Sobre Mí', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Proyectos', href: '#projects' },
   { name: 'Servicios', href: '#services' },
   { name: 'Contacto', href: '#contact' },
 ];
@@ -11,12 +8,7 @@ const navItems = [
 
 <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-border transition-transform duration-300">
   <nav class="container mx-auto px-4 md:px-6 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#home" class="text-xl md:text-2xl font-mono font-bold text-matrix hover:text-matrix-light transition-colors">
-        MARKO PAMICH
-      </a>
-
+    <div class="flex items-center justify-center">
       <!-- Desktop Navigation -->
       <ul class="hidden md:flex items-center gap-6 lg:gap-8">
         {navItems.map(item => (
@@ -103,7 +95,7 @@ const navItems = [
   });
 
   // Active nav link based on scroll position
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll<HTMLElement>('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
   window.addEventListener('scroll', () => {

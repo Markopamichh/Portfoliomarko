@@ -148,7 +148,7 @@ export default function ContactForm() {
             Enviando...
           </span>
         ) : (
-          '$ enviar_mensaje'
+          'Enviar mensaje'
         )}
       </button>
 
