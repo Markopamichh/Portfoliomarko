@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:www.auxiliosfc.com.ar)",
+      "WebFetch(domain:vieja-estacion.vercel.app)"
     ],
     "deny": [],
     "ask": []

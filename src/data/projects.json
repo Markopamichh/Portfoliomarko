@@ -1,6 +1,40 @@
 [
   {
     "id": 1,
+    "title": "Auxilios FC",
+    "description": "Sitio web profesional para empresa de auxilio vial y mecánico en Neuquén, Argentina. Primer proyecto lanzado para cliente real con servicios disponibles 24/7 y cobertura nacional. Incluye sistema de contacto multcanal y presentación completa de servicios.",
+    "features": [
+      "Diseño responsive optimizado para dispositivos móviles",
+      "Sistema de contacto con WhatsApp, teléfono y email",
+      "Presentación detallada de servicios de grúas y auxilio mecánico",
+      "Información de cobertura geográfica y disponibilidad 24/7",
+      "Integración con valoraciones y testimonios de clientes"
+    ],
+    "tech": ["Astro", "Tailwind CSS", "TypeScript"],
+    "image": "/images/projects/auxiliosfc.png",
+    "liveUrl": "https://www.auxiliosfc.com.ar/",
+    "githubUrl": "https://github.com/Markopamichh/auxiliosfc",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Vieja Estación",
+    "description": "Sitio web para bar cultural en Centenario, Neuquén. Combina gastronomía casera artesanal con música en vivo diaria. Incluye menú interactivo, programación de eventos musicales y sistema de reservas integrado.",
+    "features": [
+      "Menú digital interactivo con platos y bebidas artesanales",
+      "Programación de eventos de música en vivo (jazz, blues, rock, folclore)",
+      "Sistema de reservas vía WhatsApp integrado",
+      "Galería visual del ambiente y decoración temática",
+      "Información de horarios y ubicación con mapa interactivo"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    "image": "/images/projects/viejaestacion.png",
+    "liveUrl": "https://vieja-estacion.vercel.app/",
+    "githubUrl": "https://github.com/Markopamichh/vieja-estacion",
+    "featured": true
+  },
+  {
+    "id": 3,
     "title": "Auca Artesanías",
     "description": "E-commerce completo para artesanías en madera con integración de WhatsApp Business para automatización de pedidos y consultas. Sistema de catálogo dinámico con carrito de compras y gestión de inventario.",
     "features": [
@@ -16,7 +50,7 @@
     "featured": true
   },
   {
-    "id": 2,
+    "id": 4,
     "title": "Mateicos",
     "description": "Tienda online especializada en mates y accesorios premium. Incluye bot conversacional de WhatsApp que procesa pedidos automáticamente y proporciona recomendaciones personalizadas basadas en preferencias del cliente.",
     "features": [
