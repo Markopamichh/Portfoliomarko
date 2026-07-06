@@ -1,0 +1,202 @@
+---
+const services = [
+  {
+    id: 1,
+    title: 'Desarrollo Web Full Stack',
+    icon: '💻',
+    description: 'Aplicaciones web completas, desde el diseño hasta el deploy. SPAs, E-commerce, Landing pages y más.',
+    features: [
+      'React, Next.js, Astro - frameworks modernos',
+      'Diseño responsive y mobile-first',
+      'Optimización de performance (Lighthouse 90+)',
+      'SEO técnico y estructurado',
+      'Deploy automatizado en Vercel/Netlify'
+    ],
+    tech: ['React', 'Next.js', 'Astro', 'Tailwind', 'TypeScript'],
+    highlighted: false,
+  },
+  {
+    id: 2,
+    title: 'Automatización con IA',
+    icon: '🤖',
+    description: 'Chatbots inteligentes y automatizaciones que realmente entienden contexto y resuelven problemas de negocio.',
+    features: [
+      'Chatbots con procesamiento natural de lenguaje',
+      'Bots de WhatsApp Business automatizados',
+      'Integración con OpenAI API y modelos de IA',
+      'Automatización de procesos empresariales',
+      'Sistemas de respuesta contextual 24/7'
+    ],
+    tech: ['OpenAI API', 'WhatsApp API', 'LangChain', 'Node.js', 'MongoDB'],
+    highlighted: true,
+  },
+  {
+    id: 3,
+    title: 'Integración & APIs',
+    icon: '🔌',
+    description: 'Conexión de sistemas, APIs RESTful, webhooks y automatizaciones entre plataformas.',
+    features: [
+      'Diseño e implementación de APIs RESTful',
+      'Integración con servicios third-party',
+      'Webhooks y event-driven architecture',
+      'Autenticación y seguridad (JWT, OAuth)',
+      'Documentación técnica completa'
+    ],
+    tech: ['Node.js', 'Express', 'MySQL', 'MongoDB', 'REST'],
+    highlighted: false,
+  },
+];
+---
+
+<section id="services" class="py-20 md:py-32 px-4 bg-bg-secondary">
+  <div class="container mx-auto max-w-6xl">
+    <!-- Section Header -->
+    <div class="mb-16 text-center">
+      <p class="text-matrix font-mono text-sm mb-2">
+        <span class="opacity-60"></span>
+      </p>
+      <h2 class="text-4xl md:text-5xl font-mono font-bold">
+        <span class="text-matrix">&gt;</span> Servicios & Experiencia
+      </h2>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+        Soluciones tecnológicas que transforman ideas en productos digitales funcionales
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      {services.map((service, index) => (
+        <div
+          class={`terminal-card group transition-all duration-500 hover:-translate-y-2 ${
+            service.highlighted
+              ? 'border-2 border-matrix shadow-glow-matrix'
+              : 'hover:shadow-glow-matrix'
+          }`}
+          style={`animation-delay: ${index * 0.15}s;`}
+        >
+          <!-- Service Header -->
+          <div class="mb-6">
+            
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-4xl">{service.icon}</span>
+              <h3 class="text-xl font-mono font-bold text-matrix">
+                {service.title}
+              </h3>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+
+          <!-- Features List -->
+          <div class="space-y-3 mb-6">
+            {service.features.map(feature => (
+              <div class="flex items-start gap-2 text-sm">
+                <span class="text-matrix mt-1">✓</span>
+                <span class="text-gray-400">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          <!-- Tech Stack -->
+          <div class="pt-4 border-t border-border">
+            <div class="flex flex-wrap gap-2">
+              {service.tech.map(tech => (
+                <span class="px-2 py-1 bg-black border border-border-light text-matrix text-xs font-mono rounded">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Process Section -->
+    <div class="terminal-card max-w-4xl mx-auto">
+      <h3 class="text-2xl font-mono font-bold text-matrix mb-6 text-center">
+        Workflow
+      </h3>
+
+      <div class="grid md:grid-cols-7 gap-6">
+        <!-- Step 1 -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary border-2 border-matrix rounded-full flex items-center justify-center text-2xl font-mono font-bold text-matrix">
+            01
+          </div>
+          <h4 class="font-mono font-semibold text-matrix mb-2">Análisis</h4>
+          <p class="text-sm text-gray-400">
+            Entendemos el problema y definimos objetivos claros
+          </p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:flex items-center justify-center">
+          <svg class="w-8 h-8 text-matrix opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary border-2 border-matrix rounded-full flex items-center justify-center text-2xl font-mono font-bold text-matrix">
+            02
+          </div>
+          <h4 class="font-mono font-semibold text-matrix mb-2">Desarrollo</h4>
+          <p class="text-sm text-gray-400">
+            Código limpio, testing y entregas iterativas
+          </p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:flex items-center justify-center">
+          <svg class="w-8 h-8 text-matrix opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary border-2 border-matrix rounded-full flex items-center justify-center text-2xl font-mono font-bold text-matrix">
+            03
+          </div>
+          <h4 class="font-mono font-semibold text-matrix mb-2">Deploy</h4>
+          <p class="text-sm text-gray-400">
+            Lanzamiento optimizado y documentación completa
+          </p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:flex items-center justify-center">
+          <svg class="w-8 h-8 text-matrix opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary border-2 border-matrix rounded-full flex items-center justify-center text-2xl font-mono font-bold text-matrix">
+            04
+          </div>
+          <h4 class="font-mono font-semibold text-matrix mb-2">Soporte</h4>
+          <p class="text-sm text-gray-400">
+            Mantenimiento continuo y mejoras basadas en feedback
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <p class="text-gray-400 font-mono mb-6">
+        ¿Tienes un proyecto en mente?
+      </p>
+      <a
+        href="#contact"
+        class="btn-matrix px-8 py-4 inline-block text-lg"
+      >
+        Hablemos de tu idea →
+      </a>
+    </div>
+  </div>
+</section>

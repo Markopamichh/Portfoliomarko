@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Auxilios FC",
+    "description": "Sitio web profesional para empresa de auxilio vial y mecánico en Neuquén, Argentina. Primer proyecto lanzado para cliente real con servicios disponibles 24/7 y cobertura nacional. Incluye sistema de contacto multcanal y presentación completa de servicios.",
+    "features": [
+      "Diseño responsive optimizado para dispositivos móviles",
+      "Sistema de contacto con WhatsApp, teléfono y email",
+      "Presentación detallada de servicios de grúas y auxilio mecánico",
+      "Información de cobertura geográfica y disponibilidad 24/7",
+      "Integración con valoraciones y testimonios de clientes"
+    ],
+    "tech": ["Astro", "Tailwind CSS", "TypeScript"],
+    "image": "/images/projects/auxiliosfc.png",
+    "liveUrl": "https://www.auxiliosfc.com.ar/",
+    "githubUrl": "https://github.com/Markopamichh/auxiliosfc",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "ByG Rodamientos",
+    "description": "Sitio web institucional para distribuidora de rodamientos y repuestos industriales en la Patagonia. Presenta catálogo de productos, marcas representadas y métricas de confianza. Diseño oscuro y profesional con integración de WhatsApp para consultas comerciales.",
+    "features": [
+      "Catálogo de productos con categorías industriales y automotrices",
+      "Sección de marcas representadas con logos e información",
+      "Contador animado de métricas: clientes, experiencia y garantía",
+      "Integración directa con WhatsApp para consultas",
+      "Diseño dark mode con estética industrial"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    "image": "/images/projects/bygrodamientos.png",
+    "liveUrl": "https://www.bygrodamientos.com.ar/",
+    "githubUrl": "https://github.com/Markopamichh/bygrodamientos",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "AM Soluciones Constructivas",
+    "description": "Sitio web para empresa constructora del Alto Valle de Neuquén. Presenta su método de trabajo, galería de proyectos realizados y servicios de construcción. Diseño limpio y profesional con sistema de contacto para visitas técnicas.",
+    "features": [
+      "Presentación del Método AM con proceso de trabajo paso a paso",
+      "Galería de proyectos realizados con imágenes reales",
+      "Sistema de solicitud de visita técnica",
+      "Sección de servicios de construcción detallados",
+      "Diseño responsive con estética moderna y profesional"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    "image": "/images/projects/amconstructora.png",
+    "liveUrl": "https://am-constructora.vercel.app/",
+    "githubUrl": "https://github.com/Markopamichh/AMconstrucotra",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Vieja Estación",
+    "description": "Sitio web para bar cultural en Centenario, Neuquén. Combina gastronomía casera artesanal con música en vivo diaria. Incluye menú interactivo, programación de eventos musicales y sistema de reservas integrado.",
+    "features": [
+      "Menú digital interactivo con platos y bebidas artesanales",
+      "Programación de eventos de música en vivo (jazz, blues, rock, folclore)",
+      "Sistema de reservas vía WhatsApp integrado",
+      "Galería visual del ambiente y decoración temática",
+      "Información de horarios y ubicación con mapa interactivo"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    "image": "/images/projects/viejaestacion.png",
+    "liveUrl": "https://vieja-estacion.vercel.app/",
+    "githubUrl": "https://github.com/Markopamichh/vieja-estacion",
+    "featured": true
+  },
+  {
+    "id": 5,
+    "title": "Mateicos",
+    "description": "Tienda online especializada en mates y accesorios premium. Incluye bot conversacional de WhatsApp que procesa pedidos automáticamente y proporciona recomendaciones personalizadas basadas en preferencias del cliente.",
+    "features": [
+      "Diseño responsive optimizado para móviles",
+      "Chatbot IA para recomendaciones de productos",
+      "Integración con WhatsApp para compras directas",
+      "Sistema de búsqueda y categorización inteligente"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "WhatsApp API", "MySQL"],
+    "image": "/images/projects/mateicos.png",
+    "liveUrl": "https://mateicos.vercel.app/",
+    "githubUrl": "https://github.com/Markopamichh/mateicos",
+    "featured": true
+  }
+]

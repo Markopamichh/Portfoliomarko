@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Minimalist Black & Gray Theme */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-tertiary: #121212;
+
+  --color-primary: #e5e5e5;
+  --color-primary-dark: #404040;
+  --color-primary-light: #ffffff;
+
+  --color-accent: #cccccc;
+  --color-text-primary: #e5e5e5;
+  --color-text-secondary: #888888;
+  --color-text-matrix: #e5e5e5;
+
+  --color-border: #1a1a1a;
+  --color-border-light: #333333;
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6rem;
+
+  /* Effects - Subtle gray shadows */
+  --glow-matrix: 0 0 10px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.05);
+  --glow-matrix-strong: 0 0 10px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.05);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-black text-gray-300;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scanlines effect removed for minimalist design */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-matrix font-mono font-bold;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply text-gray-300;
+  }
+
+  a {
+    @apply text-matrix transition-colors duration-300;
+  }
+
+  a:hover {
+    @apply text-matrix-light;
+  }
+
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  /* Matrix Button */
+  .btn-matrix {
+    @apply px-6 py-3 bg-transparent border-2 border-matrix text-matrix font-mono font-semibold;
+    @apply transition-all duration-300 hover:bg-matrix hover:text-black hover:shadow-glow-matrix;
+    @apply relative overflow-hidden;
+    border-radius: 16px;
+  }
+
+  .btn-matrix::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    transition: left 0.3s ease;
+  }
+
+  .btn-matrix:hover::before {
+    left: 100%;
+  }
+
+  /* Terminal Card */
+  .terminal-card {
+    @apply bg-bg-secondary border border-border-light p-6;
+    border-radius: 24px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Glitch Text Effect */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glitch:hover::before,
+  .glitch:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch:hover::before {
+    animation: glitch-1 0.3s infinite;
+    color: #e5e5e5;
+    z-index: -1;
+  }
+
+  .glitch:hover::after {
+    animation: glitch-2 0.3s infinite;
+    color: #ffffff;
+    z-index: -2;
+  }
+}
+
+@layer utilities {
+  .text-matrix {
+    color: var(--color-primary);
+  }
+
+  .text-matrix-light {
+    color: var(--color-primary-light);
+  }
+
+  .text-matrix-dark {
+    color: var(--color-primary-dark);
+  }
+
+  .bg-bg-secondary {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .bg-bg-tertiary {
+    background-color: var(--color-bg-tertiary);
+  }
+
+  .border-matrix {
+    border-color: var(--color-primary);
+  }
+
+  .border-border {
+    border-color: var(--color-border);
+  }
+
+  .border-border-light {
+    border-color: var(--color-border-light);
+  }
+
+  .shadow-glow-matrix {
+    box-shadow: var(--glow-matrix);
+  }
+
+  .shadow-glow-matrix-strong {
+    box-shadow: var(--glow-matrix-strong);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Animations */
+@keyframes glitch-1 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  40% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Utility animations */
+.animate-typing {
+  animation: typing 2s steps(20, end);
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
