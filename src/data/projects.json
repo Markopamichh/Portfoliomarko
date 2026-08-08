@@ -61,14 +61,31 @@
       "Galería visual del ambiente y decoración temática",
       "Información de horarios y ubicación con mapa interactivo"
     ],
-    "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    "tech": ["Astro", "Tailwind CSS", "TypeScript"],
     "image": "/images/projects/viejaestacion.png",
-    "liveUrl": "https://vieja-estacion.vercel.app/",
+    "liveUrl": "https://barcultural.com.ar/",
     "githubUrl": "https://github.com/Markopamichh/vieja-estacion",
     "featured": true
   },
   {
     "id": 5,
+    "title": "CyE Studio",
+    "description": "Sitio web para estudio de marketing en Centenario, Neuquén. Presenta servicios de redes, contenido, publicidad y marca para negocios locales del Alto Valle. Diseño elegante con casos de éxito y proceso de trabajo.",
+    "features": [
+      "Presentación de servicios de marketing digital",
+      "Sección de casos de éxito con marcas locales",
+      "Proceso de trabajo detallado paso a paso",
+      "Integración con WhatsApp e Instagram",
+      "Diseño minimalista con estética premium"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    "image": "/images/projects/cyemarketing.png",
+    "liveUrl": "https://cy-emarketing.vercel.app/",
+    "githubUrl": "https://github.com/Markopamichh/CYEmarketing",
+    "featured": true
+  },
+  {
+    "id": 6,
     "title": "Mateicos",
     "description": "Tienda online especializada en mates y accesorios premium. Incluye bot conversacional de WhatsApp que procesa pedidos automáticamente y proporciona recomendaciones personalizadas basadas en preferencias del cliente.",
     "features": [
