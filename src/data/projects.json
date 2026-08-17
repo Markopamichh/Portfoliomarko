@@ -11,7 +11,7 @@
       "Integración con valoraciones y testimonios de clientes"
     ],
     "tech": ["Astro", "Tailwind CSS", "TypeScript"],
-    "image": "/images/projects/auxiliosfc.png",
+    "image": "/images/projects/auxiliosfc.webp",
     "liveUrl": "https://www.auxiliosfc.com.ar/",
     "githubUrl": "https://github.com/Markopamichh/auxiliosfc",
     "featured": true
@@ -28,7 +28,7 @@
       "Diseño dark mode con estética industrial"
     ],
     "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    "image": "/images/projects/bygrodamientos.png",
+    "image": "/images/projects/bygrodamientos.webp",
     "liveUrl": "https://www.bygrodamientos.com.ar/",
     "githubUrl": "https://github.com/Markopamichh/bygrodamientos",
     "featured": true
@@ -45,7 +45,7 @@
       "Diseño responsive con estética moderna y profesional"
     ],
     "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    "image": "/images/projects/amconstructora.png",
+    "image": "/images/projects/amconstructora.webp",
     "liveUrl": "https://am-constructora.vercel.app/",
     "githubUrl": "https://github.com/Markopamichh/AMconstrucotra",
     "featured": true
@@ -62,7 +62,7 @@
       "Información de horarios y ubicación con mapa interactivo"
     ],
     "tech": ["Astro", "Tailwind CSS", "TypeScript"],
-    "image": "/images/projects/viejaestacion.png",
+    "image": "/images/projects/viejaestacion.webp",
     "liveUrl": "https://barcultural.com.ar/",
     "githubUrl": "https://github.com/Markopamichh/vieja-estacion",
     "featured": true
@@ -79,7 +79,7 @@
       "Diseño minimalista con estética premium"
     ],
     "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    "image": "/images/projects/cyemarketing.png",
+    "image": "/images/projects/cyemarketing.webp",
     "liveUrl": "https://cy-emarketing.vercel.app/",
     "githubUrl": "https://github.com/Markopamichh/CYEmarketing",
     "featured": true
@@ -95,7 +95,7 @@
       "Sistema de búsqueda y categorización inteligente"
     ],
     "tech": ["Next.js", "React", "Tailwind CSS", "WhatsApp API", "MySQL"],
-    "image": "/images/projects/mateicos.png",
+    "image": "/images/projects/mateicos.webp",
     "liveUrl": "https://mateicos.vercel.app/",
     "githubUrl": "https://github.com/Markopamichh/mateicos",
     "featured": true
