@@ -5,7 +5,7 @@
       "skills": [
         { "name": "React", "level": 90, "icon": "⚛️" },
         { "name": "Next.js", "level": 87, "icon": "▲" },
-        { "name": "Astro", "level": 88, "icon": "🚀" },
+        { "name": "Astro", "level": 98, "icon": "🚀" },
         { "name": "TypeScript", "level": 85, "icon": "📘" },
         { "name": "Tailwind CSS", "level": 95, "icon": "🎨" },
         { "name": "JavaScript", "level": 92, "icon": "💛" },

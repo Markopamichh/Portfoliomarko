@@ -80,7 +80,7 @@
     ],
     "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     "image": "/images/projects/cyemarketing.webp",
-    "liveUrl": "https://cy-emarketing.vercel.app/",
+    "liveUrl": "https://cyestudio.com.ar/",
     "githubUrl": "https://github.com/Markopamichh/CYEmarketing",
     "featured": true
   },
