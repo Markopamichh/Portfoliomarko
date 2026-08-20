@@ -22,7 +22,7 @@ import projectsData from '../../data/projects.json';
           style={`animation-delay: ${index * 0.2}s;`}
         >
           <!-- Project Image -->
-          <div class="relative h-56 mb-6 overflow-hidden bg-bg-tertiary" style="border-radius: 20px 20px 0 0; margin: -24px -24px 0 -24px;">
+          <div class="relative h-48 md:h-auto md:aspect-video mb-6 overflow-hidden bg-bg-tertiary" style="border-radius: 20px 20px 0 0; margin: -24px -24px 0 -24px;">
             {project.image ? (
               <img
                 src={project.image}
@@ -31,7 +31,7 @@ import projectsData from '../../data/projects.json';
                 decoding="async"
                 width="900"
                 height="506"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />
             ) : (
               <div class="w-full h-full flex items-center justify-center">
